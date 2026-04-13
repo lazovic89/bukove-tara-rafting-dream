@@ -31,7 +31,7 @@ const attractions = [
   "Kanjon rijeke Tare — najdublji kanjon Evrope (1.300m)",
   "Most Đurđevića Tara — ikonični most iz 1940. godine",
   "Nacionalni park Durmitor (UNESCO)",
-  "Crno jezero — „Oči Gore"",
+  'Crno jezero — "Oči Gore"',
   "Biogradska gora — jedna od posljednjih prašuma Evrope",
 ];
 
