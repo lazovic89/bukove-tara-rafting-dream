@@ -24,7 +24,6 @@ body {
 .bg-card { background: hsl(var(--card)); }
 .bg-muted { background: hsl(var(--muted)); }
 .bg-primary { background: hsl(var(--primary)); }
-.bg-primary\/95 { background: hsl(var(--primary) / 0.95); }
 .bg-accent { background: hsl(var(--accent)); }
 .bg-foreground\/60 { background: hsl(var(--foreground) / 0.6); }
 .text-foreground { color: hsl(var(--foreground)); }
