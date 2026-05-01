@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir C:\\\\DEVELOPMENT\\\\bukove-tara-rafting-dream\\\\assets *)",
+      "Bash(python -c \"from PIL import Image; print\\('Pillow available'\\)\")",
+      "Bash(python3 -c \"from PIL import Image; print\\('Pillow available'\\)\")"
+    ]
+  }
+}
