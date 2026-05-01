@@ -1,19 +1,210 @@
 <!doctype html>
 <html lang="sr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bukovi Tare — Rafting kamp na rijeci Tari</title>
-    <meta name="description" content="Bukovi Tare rafting kamp na rijeci Tari. Rafting, planinarenje, smještaj i domaća kuhinja u srcu najdubljeg kanjona Evrope." />
-    <meta name="author" content="Bukovi Tare" />
-    <meta property="og:title" content="Bukovi Tare — Rafting kamp na rijeci Tari" />
-    <meta property="og:description" content="Rafting, planinarenje, smještaj i domaća kuhinja u srcu najdubljeg kanjona Evrope." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://bukovitare.com" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bukovi Tare — Rafting kamp na rijeci Tari</title>
+<meta name="description" content="Bukovi Tare rafting kamp na rijeci Tari. Rafting, planinarenje, smještaj i domaća kuhinja u srcu najdubljeg kanjona Evrope." />
+<meta name="author" content="Bukovi Tare" />
+<meta property="og:title" content="Bukovi Tare — Rafting kamp na rijeci Tari" />
+<meta property="og:description" content="Bukovi Tare rafting kamp na rijeci Tari. Rafting, planinarenje, smještaj i domaća kuhinja u srcu najdubljeg kanjona Evrope." />
+<meta property="og:type" content="website" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: { colors: {
+      border: 'hsl(var(--border))',
+      background: 'hsl(var(--background))',
+      foreground: 'hsl(var(--foreground))',
+      muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
+      card: 'hsl(var(--card))',
+      primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+      secondary: 'hsl(var(--secondary))',
+      accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
+    }}}
+  };
+</script>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-primary\/95">
+  <div class="container mx-auto flex items-center justify-between px-4 py-3">
+    <a href="index.html" class="text-xl font-bold text-primary-foreground tracking-wide">BUKOVI TARE</a>
+    <nav class="hidden lg:flex items-center gap-6">
+      <a href="index.html" class="nav-link text-sm font-medium text-primary-foreground/80 hover:text-accent transition-colors active">Početna</a><a href="o-nama.html" class="nav-link text-sm font-medium text-primary-foreground/80 hover:text-accent transition-colors ">O nama</a><a href="rafting.html" class="nav-link text-sm font-medium text-primary-foreground/80 hover:text-accent transition-colors ">Rafting</a><a href="smjestaj.html" class="nav-link text-sm font-medium text-primary-foreground/80 hover:text-accent transition-colors ">Smještaj</a><a href="aktivnosti.html" class="nav-link text-sm font-medium text-primary-foreground/80 hover:text-accent transition-colors ">Aktivnosti</a><a href="kontakt.html" class="nav-link text-sm font-medium text-primary-foreground/80 hover:text-accent transition-colors ">Kontakt</a>
+    </nav>
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="tel:+38765123456" class="flex items-center gap-2 text-sm text-primary-foreground/80"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+387 65 123 456</a>
+      <a href="kontakt.html" class="btn-accent">Rezervišite</a>
+    </div>
+    <button id="menuToggle" class="lg:hidden text-primary-foreground" aria-label="Menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+  </div>
+  <nav id="mobileMenu" class="hidden lg:hidden border-t border-primary-foreground/10 bg-primary px-4 pb-4">
+    <a href="index.html" class="block py-3 text-sm font-medium text-primary-foreground/80 hover:text-accent active">Početna</a><a href="o-nama.html" class="block py-3 text-sm font-medium text-primary-foreground/80 hover:text-accent ">O nama</a><a href="rafting.html" class="block py-3 text-sm font-medium text-primary-foreground/80 hover:text-accent ">Rafting</a><a href="smjestaj.html" class="block py-3 text-sm font-medium text-primary-foreground/80 hover:text-accent ">Smještaj</a><a href="aktivnosti.html" class="block py-3 text-sm font-medium text-primary-foreground/80 hover:text-accent ">Aktivnosti</a><a href="kontakt.html" class="block py-3 text-sm font-medium text-primary-foreground/80 hover:text-accent ">Kontakt</a>
+    <a href="tel:+38765123456" class="flex items-center gap-2 py-3 text-sm text-primary-foreground/80"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+387 65 123 456</a>
+    <a href="kontakt.html" class="btn-accent w-full mt-2" style="width:100%">Rezervišite</a>
+  </nav>
+</header>
+<script>
+  (function(){
+    var btn=document.getElementById('menuToggle');var menu=document.getElementById('mobileMenu');
+    if(btn){btn.addEventListener('click',function(){menu.classList.toggle('hidden');});}
+  })();
+</script>
+
+<main style="padding-top:64px">
+
+<section class="relative flex min-h-screen items-center justify-center overflow-hidden">
+  <img src="assets/hero-tara.jpg" alt="Kanjon rijeke Tare" class="hero-img" />
+  <div class="absolute inset-0 bg-foreground/60"></div>
+  <div class="relative z-10 px-4 text-center">
+    <h1 class="mb-4 text-4xl font-extrabold tracking-tight text-primary-foreground md:text-6xl lg:text-7xl">Bukovi Tare</h1>
+    <p class="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/80 md:text-xl">Avantura na rijeci Tari — rafting, planinarenje i uživanje u srcu najdubljeg kanjona Evrope</p>
+    <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+      <a href="kontakt.html" class="btn-accent" style="padding:0.75rem 2rem;font-size:1rem">Rezervišite</a>
+      <a href="rafting.html" class="btn-outline">Saznajte više</a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-primary py-8">
+  <div class="container mx-auto grid grid-cols-2 gap-6 px-4 md:grid-cols-4">
+    <div class="flex flex-col items-center text-center"><div class="text-accent mb-2" style="width:2rem;height:2rem"><svg class="" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></div><span class="text-2xl font-bold text-primary-foreground">82 km</span><span class="text-sm text-primary-foreground/70">rijeke Tare</span></div><div class="flex flex-col items-center text-center"><div class="text-accent mb-2" style="width:2rem;height:2rem"><svg class="" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span class="text-2xl font-bold text-primary-foreground">15+</span><span class="text-sm text-primary-foreground/70">godina iskustva</span></div><div class="flex flex-col items-center text-center"><div class="text-accent mb-2" style="width:2rem;height:2rem"><svg class="" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="text-2xl font-bold text-primary-foreground">5000+</span><span class="text-sm text-primary-foreground/70">zadovoljnih gostiju</span></div><div class="flex flex-col items-center text-center"><div class="text-accent mb-2" style="width:2rem;height:2rem"><svg class="" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-8 8.5-4.5-1-8-3.5-8-8.5V5l8-3 8 3z"/></svg></div><span class="text-2xl font-bold text-primary-foreground">100%</span><span class="text-sm text-primary-foreground/70">sigurnost</span></div>
+  </div>
+</section>
+
+<section class="py-16 lg:py-24">
+  <div class="container mx-auto grid items-center gap-10 px-4 lg:grid-cols-2">
+    <div>
+      <h2 class="mb-4 text-3xl font-bold text-foreground md:text-4xl">Dobrodošli u Bukovi Tare</h2>
+      <p class="mb-4 text-muted-foreground leading-relaxed">Smješteni u srcu kanjona rijeke Tare, naš kamp nudi savršen spoj avanture i odmora. Okruženi stoljetnim šumama bukve i kristalno čistom rijekom, Bukovi Tare je idealno mjesto za sve ljubitelje prirode i adrenalina.</p>
+      <p class="mb-6 text-muted-foreground leading-relaxed">Sa više od 15 godina iskustva u organizaciji raftinga i planinarenja, naš tim profesionalnih vodiča garantuje sigurno i nezaboravno iskustvo za sve uzraste.</p>
+      <a href="o-nama.html" class="btn-outline-dark">Više o nama <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-xl">
+      <img src="assets/camp.jpg" alt="Kamp" class="h-full w-full object-cover" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="bg-muted py-16 lg:py-24">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-2 text-center text-3xl font-bold text-foreground md:text-4xl">Naše aktivnosti</h2>
+    <p class="mx-auto mb-10 max-w-xl text-center text-muted-foreground">Od uzbudljivog raftinga do mirnih planinskih staza — odaberite svoju avanturu</p>
+    <div class="grid gap-6 md:grid-cols-2">
+      <a href="rafting.html" class="group relative block overflow-hidden rounded-lg shadow-lg">
+        <img src="assets/rafting-action.jpg" alt="Rafting" class="hover-scale h-72 md:h-80 w-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 gradient-overlay"></div>
+        <div class="absolute bottom-0 p-6">
+          <div class="mb-2 flex items-center gap-2 text-accent"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg><h3 class="text-xl font-bold text-primary-foreground">Rafting</h3></div>
+          <p class="text-sm text-primary-foreground/80">Spuštanje niz 82 km rijeke Tare kroz najdublji kanjon Evrope</p>
+        </div>
+      </a>
+      <a href="aktivnosti.html" class="group relative block overflow-hidden rounded-lg shadow-lg">
+        <img src="assets/hiking.jpg" alt="Planinarenje" class="hover-scale h-72 md:h-80 w-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 gradient-overlay"></div>
+        <div class="absolute bottom-0 p-6">
+          <div class="mb-2 flex items-center gap-2 text-accent"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg><h3 class="text-xl font-bold text-primary-foreground">Planinarenje</h3></div>
+          <p class="text-sm text-primary-foreground/80">Istražite prekrasne planinske staze i vidikovce nad kanjonom</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 lg:py-24">
+  <div class="container mx-auto grid items-center gap-10 px-4 lg:grid-cols-2">
+    <div class="order-2 lg:order-1 overflow-hidden rounded-lg shadow-xl">
+      <img src="assets/accommodation.jpg" alt="Smještaj" class="h-full w-full object-cover" loading="lazy" />
+    </div>
+    <div class="order-1 lg:order-2">
+      <h2 class="mb-4 text-3xl font-bold text-foreground md:text-4xl">Udoban smještaj</h2>
+      <p class="mb-4 text-muted-foreground leading-relaxed">Naše sobe i apartmani pružaju udobnost i toplinu planinskog doma. Svaka jedinica je opremljena svim potrebnim sadržajima za ugodan boravak.</p>
+      <ul class="mb-6 space-y-2 text-muted-foreground">
+        <li class="flex items-center gap-2 text-accent"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg><span class="text-muted-foreground">Udobne sobe sa kupatilom</span></li>
+        <li class="flex items-center gap-2 text-accent"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg><span class="text-muted-foreground">Apartmani za porodice</span></li>
+        <li class="flex items-center gap-2 text-accent"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg><span class="text-muted-foreground">Pogled na rijeku i šumu</span></li>
+      </ul>
+      <a href="smjestaj.html" class="btn-outline-dark">Pogledajte smještaj <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-muted py-16 lg:py-24">
+  <div class="container mx-auto grid items-center gap-10 px-4 lg:grid-cols-2">
+    <div>
+      <h2 class="mb-4 text-3xl font-bold text-foreground md:text-4xl">Domaća kuhinja</h2>
+      <p class="mb-4 text-muted-foreground leading-relaxed">Uživajte u autentičnim specijalitetima tradicionalne bosanske kuhinje. Svi obroci se pripremaju od svježih, lokalnih namirnica.</p>
+      <p class="text-muted-foreground leading-relaxed">Od jutarnjeg doručka uz domaći kajmak i med, do večere sa roštiljem na otvorenoj terasi s pogledom na kanjon — svaki obrok je poseban doživljaj.</p>
+    </div>
+    <div class="overflow-hidden rounded-lg shadow-xl">
+      <img src="assets/food.jpg" alt="Hrana" class="h-full w-full object-cover" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="py-16 lg:py-24">
+  <div class="container mx-auto px-4">
+    <h2 class="mb-2 text-center text-3xl font-bold text-foreground md:text-4xl">Šta kažu naši gosti</h2>
+    <p class="mx-auto mb-10 max-w-xl text-center text-muted-foreground">Iskustva naših zadovoljnih posjetilaca</p>
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="card"><div class="mb-3 flex gap-1 text-accent"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="mb-4 text-sm italic text-muted-foreground">"Nezaboravno iskustvo! Rafting na Tari je bio vrhunac našeg ljeta. Ekipa iz Bukovi Tare je profesionalna i gostoprimljiva."</p><p class="font-semibold text-foreground">Marko P.</p></div><div class="card"><div class="mb-3 flex gap-1 text-accent"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="mb-4 text-sm italic text-muted-foreground">"Smještaj je odličan, hrana domaća i ukusna, a priroda oko kampa je predivna. Vraćamo se svake godine!"</p><p class="font-semibold text-foreground">Ana S.</p></div><div class="card"><div class="mb-3 flex gap-1 text-accent"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="mb-4 text-sm italic text-muted-foreground">"Savršeno organizovano — od dolaska do odlaska. Planinarenje i rafting su bili fantastični. Preporučujem svima!"</p><p class="font-semibold text-foreground">Stefan M.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-primary py-16 lg:py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl">Rezervišite svoju avanturu</h2>
+    <p class="mx-auto mb-8 max-w-xl text-primary-foreground/80">Kontaktirajte nas za rezervaciju ili dodatne informacije. Dostupni smo putem telefona, emaila, Vibera ili WhatsAppa.</p>
+    <div class="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row text-primary-foreground/80">
+      <a href="tel:+38765123456" class="flex items-center gap-2 hover:text-accent"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+387 65 123 456</a>
+      <a href="mailto:info@bukovitare.com" class="flex items-center gap-2 hover:text-accent"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>info@bukovitare.com</a>
+      <span class="flex items-center gap-2"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Kanjon rijeke Tare</span>
+    </div>
+    <a href="kontakt.html" class="btn-accent" style="padding:0.75rem 2.5rem">Kontaktirajte nas</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-primary text-primary-foreground">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <h3 class="mb-4 text-lg font-bold">BUKOVI TARE</h3>
+        <p class="text-sm text-primary-foreground/70">Rafting kamp na rijeci Tari — nezaboravna avantura u srcu kanjona.</p>
+      </div>
+      <div>
+        <h4 class="mb-4 font-semibold">Brzi linkovi</h4>
+        <ul class="space-y-2 text-sm text-primary-foreground/70">
+          <li><a href="index.html" class="hover:text-accent transition-colors">Početna</a></li><li><a href="o-nama.html" class="hover:text-accent transition-colors">O nama</a></li><li><a href="rafting.html" class="hover:text-accent transition-colors">Rafting</a></li><li><a href="smjestaj.html" class="hover:text-accent transition-colors">Smještaj</a></li><li><a href="aktivnosti.html" class="hover:text-accent transition-colors">Aktivnosti</a></li><li><a href="kontakt.html" class="hover:text-accent transition-colors">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="mb-4 font-semibold">Kontakt</h4>
+        <ul class="space-y-3 text-sm text-primary-foreground/70">
+          <li class="flex items-center gap-2"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+38765123456" class="hover:text-accent">+387 65 123 456</a></li>
+          <li class="flex items-center gap-2"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:info@bukovitare.com" class="hover:text-accent">info@bukovitare.com</a></li>
+          <li class="flex items-start gap-2"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Kanjon rijeke Tare, BiH</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="mb-4 font-semibold">Pratite nas</h4>
+        <div class="flex flex-col gap-2 text-sm text-primary-foreground/70">
+          <a href="https://wa.me/38765123456" target="_blank" rel="noopener" class="hover:text-accent">WhatsApp</a>
+          <a href="viber://chat?number=%2B38765123456" class="hover:text-accent">Viber</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="hover:text-accent">Facebook</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-accent">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 border-t border-primary-foreground/10 pt-6 text-center text-sm text-primary-foreground/50">
+      © 2026 Bukovi Tare. Sva prava zadržana.
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
