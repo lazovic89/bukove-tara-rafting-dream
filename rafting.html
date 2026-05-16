@@ -28,6 +28,7 @@
   };
 </script>
 <link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
 </head>
 <body>
 
@@ -60,10 +61,10 @@
 
 
 <section class="relative flex h-[50vh] items-center justify-center overflow-hidden">
-  <img src="assets/rafting-action.jpg" alt="Rafting" class="hero-img" />
+  <img src="assets/images/boat-in-tara-rapids.jpg" alt="boat in tara rapids" class="hero-img" />
   <div class="absolute inset-0 bg-foreground/60"></div>
   <div class="relative z-10 text-center px-4">
-    <h1 class="text-4xl font-extrabold text-primary-foreground md:text-5xl">Rafting</h1>
+    <h1 class="text-4xl font-extrabold text-primary-foreground md:text-5xl">Rafting Tarom</h1>
     <p class="mt-2 text-primary-foreground/80">Spuštanje niz najdublji kanjon Evrope</p>
   </div>
 </section>
@@ -75,7 +76,7 @@
       <p class="text-muted-foreground leading-relaxed">Sa kanjonom dubokim 1.300 metara, rijeka Tara je pravo čudo prirode. Njene tirkizne vode, okružene netaknutim šumama i strmim liticama, pružaju rafting iskustvo koje ne možete doživjeti nigdje drugdje u Evropi.</p>
     </div>
     <div class="overflow-hidden rounded-lg shadow-xl h-80 lg:h-[480px]">
-      <img src="assets/hero-tara.jpg" alt="Rijeka Tara" class="h-full w-full object-cover" loading="lazy" />
+      <img src="assets/images/djurdjevica-tara-bridge.jpg" alt="djurdjevica tara bridge" class="h-full w-full object-cover" loading="lazy" />
     </div>
   </div>
 </section>
@@ -195,7 +196,15 @@
   <div class="container mx-auto px-4">
     <h2 class="mb-10 text-center text-3xl font-bold text-foreground">Galerija</h2>
     <div class="grid gap-4 grid-cols-2 md:grid-cols-3">
-      <div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/rafting-action.jpg" alt="Galerija 1" class="h-48 md:h-64 w-full object-cover" loading="lazy" /></div><div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/hero-tara.jpg" alt="Galerija 2" class="h-48 md:h-64 w-full object-cover" loading="lazy" /></div><div class="overflow-hidden rounded-lg shadow-lg"><img src="assets/camp.jpg" alt="Galerija 3" class="h-48 md:h-64 w-full object-cover" loading="lazy" /></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/rafting-tara-adrenaline-boat-in-rapids.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/rafting-tara-adrenaline-boat-in-rapids.jpg" alt="rafting tara adrenaline boat in rapids" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/tara-raft-crew.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/tara-raft-crew.jpg" alt="tara raft crew" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/boat-in-tara-rapids.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/boat-in-tara-rapids.jpg" alt="boat in tara rapids" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/rafting-start-tara.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/rafting-start-tara.jpg" alt="rafting start tara" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/tara-veslanje-u-brzacima.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/tara-veslanje-u-brzacima.jpg" alt="tara veslanje u brzacima" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/jump-from-rock-tara-rafting.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/jump-from-rock-tara-rafting.jpg" alt="jump from rock tara rafting" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/rafting-tara-porodicno.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/rafting-tara-porodicno.jpg" alt="rafting tara porodicno" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/rafting-tara-teambuilding.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/rafting-tara-teambuilding.jpg" alt="rafting tara teambuilding" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
+      <div class="overflow-hidden rounded-lg shadow-lg"><a href="assets/images/rafting-tara-view-from-boat.jpg" class="glightbox" data-gallery="rafting"><img src="assets/images/rafting-tara-view-from-boat.jpg" alt="rafting tara view from boat" class="hover-scale h-48 md:h-64 w-full object-cover" loading="lazy" /></a></div>
     </div>
   </div>
 </section>
@@ -239,5 +248,7 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });</script>
 </body>
 </html>
