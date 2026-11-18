@@ -106,3 +106,47 @@ body {
 }
 .hover-scale { transition: transform 0.5s; }
 .group:hover .hover-scale { transform: scale(1.05); }
+
+/* Language switcher (markup injected by _i18n/build.js) */
+.lang-switch { position: relative; }
+.lang-switch > summary {
+  list-style: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.8rem; font-weight: 600;
+  color: hsl(var(--primary-foreground) / 0.85);
+  padding: 0.35rem 0.55rem;
+  border: 1px solid hsl(var(--primary-foreground) / 0.25);
+  border-radius: var(--radius);
+  transition: color 0.2s, border-color 0.2s;
+}
+.lang-switch > summary::-webkit-details-marker { display: none; }
+.lang-switch > summary:hover, .lang-switch[open] > summary { color: hsl(var(--accent)); border-color: hsl(var(--accent) / 0.6); }
+.lang-switch ul {
+  position: absolute; right: 0; top: calc(100% + 0.5rem);
+  min-width: 10rem; margin: 0; padding: 0.35rem 0; list-style: none;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 60;
+}
+.lang-switch li a {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 0.45rem 0.9rem; font-size: 0.875rem;
+  color: hsl(var(--foreground)); text-decoration: none;
+}
+.lang-switch li a span { color: hsl(var(--muted-foreground)); font-size: 0.75rem; }
+.lang-switch li a:hover { background: hsl(var(--muted)); }
+.lang-switch li a.active { color: hsl(var(--primary)); font-weight: 600; }
+.lang-switch-mobile {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid hsl(var(--primary-foreground) / 0.1);
+}
+.lang-switch-mobile a {
+  padding: 0.3rem 0.7rem; font-size: 0.8rem; font-weight: 600;
+  border: 1px solid hsl(var(--primary-foreground) / 0.25);
+  border-radius: var(--radius);
+  color: hsl(var(--primary-foreground) / 0.85); text-decoration: none;
+}
+.lang-switch-mobile a.active { background: hsl(var(--accent)); border-color: hsl(var(--accent)); color: hsl(var(--accent-foreground)); }

@@ -1,0 +1,13 @@
+{
+  "name": "bukovi-tare-build",
+  "private": true,
+  "description": "Build tools for taracamp.com (not published). Run from this folder: npm install, then npm run build.",
+  "scripts": {
+    "build": "node build.js",
+    "images": "node optimize-images.js"
+  },
+  "devDependencies": {
+    "sharp": "0.33.5",
+    "tailwindcss": "3.4.17"
+  }
+}

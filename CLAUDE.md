@@ -4,40 +4,57 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static HTML/CSS marketing website for Bukovi Tare rafting camp (taracamp.com), written in Serbian. No build system, package manager, or backend — source files are deployed directly to GitHub Pages.
+Static HTML/CSS marketing website for Bukovi Tare rafting camp (taracamp.com). Serbian is the source language; English, German, Hungarian and Polish pages are generated from it. No backend — the repository root is deployed as-is to GitHub Pages.
 
 ## Development
 
-No build, test, or lint commands exist. Open any `.html` file in a browser to preview. Changes are live immediately on GitHub Pages after pushing to `main`.
+All tooling lives in `_build/` (not published — Jekyll ignores `_` folders). One-time setup: `cd _build && npm install`.
+
+- `npm run build` (in `_build/`) — **run after every change to a page.** Generates translated pages, refreshes the SEO `<head>` block and language switcher on all pages, writes `sitemap.xml` + `robots.txt`, and compiles `css/tailwind.css`. Output is deterministic (re-running changes nothing).
+- `npm run images` (in `_build/`) — resizes/recompresses JPEGs in `assets/` in place (long edge 1600px, hero 1920px). Run after adding new photos; already-optimized files are skipped.
+
+Preview by serving the repo root with any static server (absolute paths like `/css/...` in `404.html` need a server, not `file://`). Changes are live on GitHub Pages after pushing to `main`, including the generated files — commit them.
 
 **Deployment:** GitHub Pages with custom domain `taracamp.com` (configured via `CNAME`).
 
 ## Architecture
 
-Six static HTML pages share a common sticky header/footer and the same stylesheet:
+Six Serbian pages in the root share a common sticky header/footer and the same stylesheets:
 
 | File | Page |
 |---|---|
-| `index.html` | Home (hero, highlights, testimonials, map) |
+| `index.html` | Home (hero, highlights, testimonials) |
 | `o-nama.html` | About the camp |
-| `rafting.html` | Rafting routes, pricing, safety |
+| `rafting.html` | Rafting tours, pricing, safety, gallery |
 | `smjestaj.html` | Accommodation |
-| `aktivnosti.html` | Hiking and other activities |
-| `kontakt.html` | Contact form, phone/WhatsApp/Viber, Google Maps embed |
+| `aktivnosti.html` | Hiking and other activities, gallery |
+| `kontakt.html` | Phone/WhatsApp/Viber, address, Google Maps embed |
 
-**Styling:** Two-layer system — `css/styles.css` defines HSL design tokens and custom component classes (`.btn-accent`, `.card`, `.input`, etc.), while Tailwind CSS (CDN, configured inline in `<head>`) handles layout utilities. The Tailwind config extends the same HSL color tokens.
+`404.html` is a standalone multilingual page (absolute paths, `noindex`); it is not processed by the translation build.
+
+**Styling:** Two layers — `css/styles.css` defines HSL design tokens and custom component classes (`.btn-accent`, `.card`, `.lang-switch`, etc.); `css/tailwind.css` is **compiled** Tailwind 3 (config in `_build/tailwind.config.js`, same HSL color tokens). Do not reintroduce the Tailwind CDN. If you use a new Tailwind class, rebuild so it gets compiled in.
 
 **Color tokens (defined in `styles.css`):**
 - Primary: deep river blue `207 65% 31%`
 - Secondary: forest green `142 40% 35%`
 - Accent: orange/amber `30 90% 55%`
 
-**JavaScript:** Minimal — only mobile hamburger menu toggle. No frameworks or dependencies.
+**JavaScript:** Minimal — mobile hamburger menu toggle, closing the language dropdown, and GLightbox (self-hosted in `assets/vendor/glightbox/`, v3.3.0) for galleries.
 
-**Images:** All in `assets/`, lazy-loaded via `loading="lazy"`.
-
-**Contact form:** HTML structure is present in `kontakt.html` but has no POST endpoint wired up — it is not yet functional.
+**Images:** All in `assets/` (tour card photos in `assets/images/ture/`), lazy-loaded via `loading="lazy"`; page hero images use `fetchpriority="high"`. No images are hotlinked from other sites.
 
 ## Content Language
 
-All user-facing content is in Serbian (Latin script). Page names and navigation labels follow Serbian conventions (e.g., "Smještaj", "O nama").
+Serbian (Latin script) is the source language and lives in the site root. Page names and navigation labels follow Serbian conventions (e.g., "Smještaj", "O nama"). Image `alt` texts are written in Serbian too.
+
+## Translations (EN / DE / HU / PL)
+
+Translated pages live in `en/`, `de/`, `hu/`, `pl/` with translated file names (e.g. `de/unterkunft.html`, `pl/noclegi.html`). They are **generated** — never edit them by hand.
+
+- `_build/translations.js` — dictionary: exact Serbian string → `{en, de, hu, pl}`. Covers text, `alt`, `title`, `<title>` and meta descriptions.
+- `_build/build.js` — page slugs per language (`PAGES`), strings kept as-is in every language (`KEEP`), business data for structured data (`BUSINESS`).
+- Workflow: edit a Serbian page → update/add the matching key in `translations.js` → `npm run build`. The build fails and lists any Serbian string without a translation, and warns about unused keys.
+
+## SEO (generated by the build)
+
+Every page gets, between `<!-- i18n:head -->` markers: canonical URL, `hreflang` alternates (Serbian page also serves `bs`/`hr`; `x-default` → English), Open Graph (`og:image` = the page's hero image) and Twitter card tags. Home pages also get schema.org JSON-LD (`LodgingBusiness`: address Bastasi bb, Foča; GPS; phone; social profiles; tour offers with EUR prices). If prices, tours, address or social links change, update `BUSINESS` in `build.js` too.
