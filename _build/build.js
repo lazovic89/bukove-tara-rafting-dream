@@ -205,7 +205,8 @@ function main() {
   const sources = {};
   for (const key of Object.keys(PAGES)) {
     const file = PAGES[key].sr;
-    sources[key] = stripBlocks(fs.readFileSync(path.join(ROOT, file), 'utf8'));
+    // Normalize line endings: git on Windows (core.autocrlf) may check files out with CRLF.
+    sources[key] = stripBlocks(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'));
   }
 
   const missing = new Set();
@@ -222,7 +223,7 @@ function main() {
   }
 
   if (missing.size) {
-    console.error(`Missing translations (${missing.size}). Add them to _i18n/translations.js:\n`);
+    console.error(`Missing translations (${missing.size}). Add them to _build/translations.js:\n`);
     for (const m of missing) console.error('  ' + m);
     process.exit(1);
   }
