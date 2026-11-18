@@ -153,14 +153,29 @@ function mobileSwitchBlock(lang, key) {
 // Each injected block occupies whole line(s), so stripping restores the original exactly.
 const stripBlocks = (html) => html.replace(/^[ \t]*<!-- i18n:([\w-]+) -->[\s\S]*?<!-- \/i18n:\1 -->\n/gm, '');
 
+// Google tag (Google Tag Manager container). Google requires it immediately after <head>,
+// exactly once per page. 404.html (not built) carries a hand-copied version of this snippet.
+const GOOGLE_TAG_ID = 'GTM-P29BR526';
+const googleTagBlock = () => `<!-- i18n:gtag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<!-- /i18n:gtag -->
+`;
+
 function injectBlocks(html, lang, key, file) {
   // Blocks are inserted as a new line just above these anchor lines, with the same indentation.
   const desk = /^([ \t]*)(<a href="tel:\+38766843043" class="hidden xl:flex items-center gap-2 text-sm)/m;
   const mob = /^([ \t]*)(<a href="tel:\+38766843043" class="flex items-center gap-2 py-3)/m;
-  for (const [re, desc] of [[/^<\/head>/m, 'head block'], [desk, 'desktop switcher'], [mob, 'mobile switcher']]) {
+  for (const [re, desc] of [[/^<head>\n/m, 'google tag'], [/^<\/head>/m, 'head block'], [desk, 'desktop switcher'], [mob, 'mobile switcher']]) {
     if (!re.test(html)) throw new Error(`${file}: anchor not found for ${desc}`);
   }
+  if (html.includes('googletagmanager.com')) throw new Error(`${file}: contains a Google tag outside the generated block — remove it`);
   return html
+    .replace(/^<head>\n/m, () => '<head>\n' + googleTagBlock())
     .replace(/^<\/head>/m, () => headBlock(lang, key, html) + '</head>')
     .replace(desk, (m, ind, a) => `${ind}${switchBlock(lang, key)}\n${ind}${a}`)
     .replace(mob, (m, ind, a) => `${ind}${mobileSwitchBlock(lang, key)}\n${ind}${a}`);
